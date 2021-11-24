@@ -1,0 +1,292 @@
+:root{
+
+}
+
+body{
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    background: #B5B7B6;
+}
+
+canvas{
+    position: absolute;
+    top: 25%;
+    left:5%;
+
+}
+.tranasCanvaso{
+    color: currentColor;
+    opacity: 0.5;
+    z-index: -100;
+ cursor: not-allowed;
+ opacity: 0.5;
+  text-decoration: none;
+  pointer-events: none;
+
+}
+a{
+    text-decoration: none;
+    color: white;
+    display: inline-grid;
+    place-items: center;
+     font-size: 12px;
+}
+
+
+.secnav{
+    position: absolute;
+    top: 7%;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 80vw;
+    align-items: center;
+    justify-content: center;
+    height: 8%;
+background-color: #F0F2F3;
+}
+
+.secnav ul{
+margin-right: 1rem;
+}
+
+nav{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background: #363941;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    height: 7.5%;
+    color: white;
+    z-index: 1;
+}
+nav i{
+    font-size: 22px;
+    margin-bottom: 0.2rem;
+
+}
+nav button{
+    display: inline-grid;
+    place-items: center;
+    border: none;
+   background: transparent;
+  color: white;
+  font-weight: lighter;
+  font-size: 12px;
+  cursor: pointer;
+  /* height:50px;
+  width: 65px; */
+  
+}
+
+nav ul button{
+    width: 68px; 
+
+}
+nav ul button.activeTab{
+    background: rgb(14,98,189);
+    background: linear-gradient(90deg, rgba(14,98,189,1) 15%, rgba(93,84,226,1) 73%);
+}
+
+nav ul button:hover{
+    background: #707279;
+}
+
+
+.tools {
+    position: absolute;
+    right: 0%;
+    padding-top: 4rem;
+    width: 20%;
+    height: 100vw;
+    display: flex;
+    justify-content: center !important;  
+    background-color: #F0F2F3;
+    
+}
+.brush_opt{
+    /* background: red; 
+    height: 40vw;
+    width: 500px;
+    display: grid;
+    flex-direction: column;
+    justify-content: center; 
+   align-items: center;     */
+   /* height: 40vw; */
+   width: 120vw;
+   height: 40vw;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+
+.brush_opt span{ 
+    color: #0064B6;
+    font-weight: lighter;
+    font-size: small;
+    text-align: left;
+    margin-right: 8rem;
+}
+
+.brushTool{   
+    display: inline-grid;
+    place-self: center;  
+    width: 85%;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+    height:30%;
+}
+
+.brushTool button{
+    border: none;
+    width:40px;
+    height: 40px;
+    font-size: 23px;
+}
+
+#activeTool{
+    margin-bottom: 1rem;
+   color: #0E62BD;
+}
+
+.toolAnim{
+animation: toolTrans 1s ease-in-out; 
+}
+
+@keyframes toolTrans {
+    0%{
+        opacity: 0%;
+        transform: translateX(10%);
+    }
+    100%{
+        opacity: 100%;
+        transform: translateX(0%);
+    }
+}
+
+
+
+.brushTool button:hover{
+    border: 1px solid #0064B6;
+    background-color: white;
+}
+
+.brushTool button:hover::before{
+    top: 1.8%;
+    display: inline-grid;
+    place-items: center;
+    width: 60px;
+    height: 30px;
+    border: 1px solid rgb(207, 207, 207);
+    font-size: small;
+    position: absolute;
+    background-color: white;
+    transition: 5s all ease-in-out;
+}
+
+.brushTool button:nth-child(1):hover::before{
+    content: "Marker";
+    position: absolute;
+    top: 6%;
+}
+.brushTool button:nth-child(2):hover::before{
+    content: "Dot";
+    position: absolute;
+    top: 6%;
+}
+
+
+.brushTool button.active{
+    border: none;
+    width:40px;
+    height: 40px;
+    background: rgb(14,98,189);
+     background: linear-gradient(90deg, rgba(14,98,189,1) 15%, rgba(93,84,226,1) 73%);
+}
+
+.brushThickness{
+display: inline-grid;
+place-self:center;  
+ width: 90%;
+ height: 100%;
+ align-content: start;
+ border-bottom: 1px solid rgb(209, 209, 209);
+ margin-bottom: 2rem;
+ margin-top: 0.5rem;
+}
+
+
+#thinkPercent{
+display: inline-grid;
+place-self: center;
+}
+
+.slidecontainer {
+    width: 100%;  
+     margin-top: 1rem;
+}
+  
+  .slider {
+    width: 100%;
+    height: 2.5px;
+}
+.stickerSlider{  
+    width: auto;
+    height: 2.5px;
+}
+
+.zslider{
+    width: 70%;
+
+}
+  
+  .slider::-webkit-slider-thumb {
+    
+    width: 9px;
+    height: 25px;
+    background: #0064B6;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.slider::-moz-range-thumb {
+    width: 9px;
+    height: 25px;
+    background: #0064B6;
+    cursor: pointer;
+    border-radius: 15px;
+  }
+
+
+
+.parentColorField{
+    position: relative;
+    width: 100%; 
+    margin-left:2rem; 
+
+}
+.color-field{
+    height: 40px;
+    width: 40px;
+    min-height: 40px;
+    min-width: 40px;
+    cursor: pointer;
+    display: inline-flex; 
+    box-sizing: border-box;
+    /* border-radius: 50%; */
+    /* border: 1px solid white; */
+    align-self: center;
+      margin: -3px; 
+} 
+
+
+.color-picker{ 
+align-self: center;
+margin-bottom: 2rem;
+height: 50px;
+}

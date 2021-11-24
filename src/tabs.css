@@ -1,0 +1,177 @@
+.off{
+    width: 0%;
+    height: 0%;
+    opacity: 0%;
+    visibility: hidden;
+    cursor: none;
+    overflow: hidden;
+}
+
+.canvasOpt{
+width: 85%;
+color: #222255;
+}
+
+.canvasOpt h3{
+    color: #0E62BD;
+    font-weight: lighter;
+    margin-top: 0.5rem;
+}
+
+.canvasOptdiv{
+    /* height: 100%; */
+    display: grid;
+grid-template-rows: 1fr 1fr 1fr;
+margin-top: -1rem;
+}
+
+.canvasOptdiv div span p {
+font-size: smaller;
+}
+
+.canvasToggle{
+    border-bottom: 1px solid rgb(209, 209, 209);
+
+}
+
+.canvasSize{
+    font-size: small;
+    margin-top: 1rem;
+}
+
+.canvasSize input{
+    border: 1px solid rgb(209, 209, 209);
+    width: 100px;
+    height: 25px;
+}
+
+.canvasSize input:hover{
+    border: 1px solid #222255;
+ 
+}
+
+.canvasSize div{
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.canvasSize div span{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tgl {
+    display: none;
+}
+
+    li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .tgl+.tgl-btn {
+        outline: 0;
+        display: block;
+        width: 2.1em;
+        height: 1em;
+        position: relative;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border: 2px solid black;
+    }
+
+    .tgl+.tgl-btn:after,
+    .tgl+.tgl-btn:before {
+        position: relative;
+        display: block;
+        content: "";
+        width: 50%;
+        height: 100%;
+    }
+
+    .tgl+.tgl-btn:after {
+        left: 0;
+    }
+
+    .tgl+.tgl-btn:before {
+        display: none;
+        background-color: #F0F2F3;
+    }
+
+    .tgl:checked+.tgl-btn:after {
+        left: 50%;
+        background-color: #fff;
+    }
+
+    .tgl-light+.tgl-btn {
+        background-color: #F0F2F3;
+        border-radius: 2em;
+        padding: 2px;
+        transition: all 0.4s ease;
+    }
+
+    .tgl-light+.tgl-btn::before{
+        background: #000;
+    }
+
+    .tgl-light+.tgl-btn:after {
+        border-radius: 50%;
+        background: #000;
+        transition: all 0.2s ease;
+    }
+
+    .tgl-light:checked+.tgl-btn {
+        background: #0064B6;
+    }
+
+    .tgl-light:checked+.tgl-btn:hover {
+        background: #48C9D1;
+    }
+
+    .this-will:hover:before{
+        content: 'This will remove everything on the Canvas❌';
+        top: 25.5%;
+        /* display: flex;
+        place-items: center; */
+        width: 150px;
+        height: 50px;
+        border: 1px solid rgb(207, 207, 207);
+        font-size: small;
+        position: absolute;
+        background-color: white;
+        transition: 5s all ease-in-out;
+    }
+    .tg-list-item1:hover::before{
+        top: 11.5%;
+    }
+
+.loading{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: #B5B7B6;
+    z-index: 4;
+    display: inline-grid;
+    place-items: center;
+}
+
+.loading img{
+    width: 8rem;
+    height: auto;
+    animation: pre-loader 1s ease-in-out infinite alternate forwards
+}
+
+@keyframes pre-loader {
+    to {
+		opacity: 0.6;
+		transform: scale3d(0.5,0.5,1) rotate(360deg);
+	}
+}

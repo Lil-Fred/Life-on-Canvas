@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./tabs.css">
+    <title>Modern Coder</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="loading" >
+       <img src="./favicon.png" >
+        </div>
+
+        <nav>
+            <a href="" download="my_painting.png" class="download-drop"><i class='bx bx-save'></i>save</a>
+
+            <ul class="nav">
+                <button class="activeTab"><i onclick="brushTab()" class='bx bx-paint'></i>Brushes</button>
+        
+            
+                <button><i onclick="canvasTab()" class='bx bx-chalkboard'></i>Canvas</button>
+            </ul>
+            <div>
+                <button id="undo-btn"><i class='bx bx-undo'></i>Undo</button>
+                <button onclick="clearCanvas()" type="button" class="btn"><i class='bx bxs-eraser'></i>Clear</button>
+            </div>
+        </nav>
+        <section class="secnav">
+            <span id="disZoom">100%</span>
+            <ul>
+                <i class='bx bx-minus'></i>
+                <input class="slider zslider" value="100" type="range" min="0" max="100"
+                    oninput="ZoomCanvas= this.value" id="zoom">
+                <i class='bx bx-plus'></i>
+            </ul>
+        </section>
+
+        <div class="tools">
+
+
+            <div class="brush_opt">
+                <div class="brushTool">
+                    <p1 id="activeTool"></p1>
+                    <div>
+                        <button class="markerTool active" onclick="normalPaint()"><i class='bx bx-brush '></i></button>
+                        <button class="dotTool" onclick="dotPaint()"><i class='bx bxs-pen'></i></button>
+                    </div>
+                </div>
+
+                <div class="brushThickness">
+                    <span>Thickness </span>
+                    <p1 id="thinkPercent">2%</p1>
+                    <div class="slidecontainer">
+                        <input type="range" min="2" value="2" max="100" oninput="draw_width= this.value" id="myRange"
+                            class="slider">
+                    </div>
+                </div>
+
+                <div style="display: inline-grid; place-items: center;">
+                    <input oninput="draw_color = this.value " type="color" class="color-picker">
+                    <div class="parentColorField">
+                        <div onclick="change_color(this)" class="color-field" style="background: white;"></div>
+                        <div onclick="change_color(this)" class="color-field" style="background: grey;"></div>
+                        <div onclick="change_color(this)" class="color-field" style="background: darkgray;"></div>
+                        <div onclick="change_color(this)" class="color-field" style="background: black;"></div>
+                        <div onclick="change_color(this)" class="color-field" style="background: red;"></div>
+                        <div onclick="change_color(this)" class="color-field" style="background: green;"></div>
+                        <div onclick="change_color(this)" class="color-field" style="background: blue;"></div>
+                        <div onclick="change_color(this)" class="color-field" style="background: violet;"></div>
+                        <div onclick="change_color(this)" class="color-field" style="background: lemonchiffon;"></div>
+                        <div onclick="change_color(this)" class="color-field" style="background: cyan;"></div>
+                        <div onclick="change_color(this)" class="color-field" style="background: pink;"></div>
+                        <div onclick="change_color(this)" class="color-field" style="background: yellow;"></div>
+                        <div onclick="change_color(this)" class="color-field" style="background: darkred;"></div>
+                        <div onclick="change_color(this)" class="color-field" style="background: saddlebrown;"></div>
+                        <div onclick="change_color(this)" class="color-field" style="background: tomato;"></div>
+                        <div onclick="change_color(this)" class="color-field" style="background: rebeccapurple;"></div>
+                        <div onclick="change_color(this)" class="color-field" style="background: wheat;"></div>
+                        <div onclick="change_color(this)" class="color-field" style="background: hotpink;"></div>
+
+                    </div>
+
+                </div>
+            </div>
+
+          
+            <div class="canvasOpt">
+                <h3>Canvas</h3>
+
+                <div class="canvasOptdiv">
+                    <div class="canvasToggle">
+                        <span>
+                            <li class="tg-list-item">
+                                <p>Show canvas</p>
+                                <input class="tgl tgl-light showCanvas" id="cb1" type="checkbox" />
+                                <label class="tgl-btn" for="cb1"></label>
+                        </span>
+                        <span>
+                            <br>
+                            <li class="this-will  tg-list-item1">
+                                <p>Enable Fill Canvas</p>
+                                <input class="tgl tgl-light enableFillCanvas" id="cb2" type="checkbox" />
+                                <label class="tgl-btn" for="cb2"></label>
+                        </span>
+
+                        <br>
+                        <p id="fillCanvasinput" class="tranasCanvaso">
+                            <label>Fill Canvas:
+                                <input id="backgroundColor" type="color" value="#FFFFFF">
+                            </label>
+                        </p>
+                    </div>
+                    <div class="textures">
+                        <br>
+                        <span class="this-will  tg-list-item2">
+
+                            <p>Enable Texture on Canvas</p>
+                            <input class="tgl tgl-light enableTexture" id="cb3" type="checkbox" />
+                            <label class="tgl-btn" for="cb3"></label>
+                        </span>
+                        <br>
+                        <span class="tranasCanvaso" id="imgtexture">
+                            <img src="./textures/11.png" width="50" height="50">
+                            <img src="./textures/1.jpg" width="50" height="50">
+                            <img src="./textures/2.jpg" width="50" height="50">
+                            <img src="./textures/3.jpg" width="50" height="50">
+                            <img src="./textures/4.jpg" width="50" height="50">
+                            <img src="./textures/5.jpg" width="50" height="50">
+                            <img src="./textures/6.jpg" width="50" height="50">
+                            <img src="./textures/7.jpg" width="50" height="50">
+                            <img src="./textures/8.jpg" width="50" height="50">
+                            <img src="./textures/9.jpg" width="50" height="50">
+                            <img src="./textures/10.png" width="50" height="50">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <canvas></canvas>
+    <script src="./app.js"></script>
+    <script defer src="./index.js"></script>
+    <script>
+        let nav = document.querySelector('.nav')
+
+        nav.querySelectorAll('button').forEach((button, i) => {
+            button.onclick = (e) => {
+                if (button.classList.contains('activeTab')) return
+
+                nav.querySelectorAll('button').forEach(el => {
+                    el.classList.remove('activeTab')
+                })
+
+                button.classList.add('activeTab')
+
+            }
+        })
+
+        const brushOpt = document.querySelector('.brush_opt')
+        const canvasOpt = document.querySelector('.canvasOpt')
+        const thinkPercent = document.querySelector('#thinkPercent')
+        const myRange = document.querySelector('#myRange')
+        const zoom = document.querySelector('#zoom')
+
+        myRange.addEventListener('input', function () {
+            console.log('input')
+            thinkPercent.textContent = `${draw_width}%`
+        })
+
+        //Zooom Effect
+        zoom.addEventListener('input', function () {
+
+            document.getElementById('disZoom').textContent = `${zoom.value}%`
+            var ZoomCanvas =
+                canvas.style = `transform: scale(${zoom.value}%);`
+        })
+
+        function brushTab() {
+            brushOpt.classList.remove('off')
+            canvasOpt.classList.add('off')
+         
+        }
+        brushTab()
+        
+        function canvasTab() {
+            brushOpt.classList.add('off')
+            canvasOpt.classList.remove('off')
+       
+        }
+        
+
+    </script>
+
+</body>
+
+</html>
